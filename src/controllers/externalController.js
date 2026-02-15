@@ -1,18 +1,14 @@
 const pool = require('../config/db');
 
-const obtenerp=async (req, res) =>{
-try{
-    const {nombre} = req.params;
-        const query= `SELECT p.*, c.nombre AS categoria_nombre
-            FROM productos p
-            INNER JOIN categoria c ON p.id_categoria = c.id
-            WHERE p.nombre ILIKE $1
-        `
-        const { rows } = await pool.query(query, [`%${nombre}%`]);
-        res.json(rows);
-    } catch(error){
+const obtenerp = async (req, res) => {
+    try {
+        const query = `SELECT p.*, c.nombre AS categoria_nombre
+            FROM productos p INNER JOIN categoria c ON p.id_categoria = c.id`;
+        const { rows } = await pool.query(query);
+        return res.json(rows);
+    } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Error al leer bd' });
+        return res.status(500).json({ error: 'Error al leer bd' });
     }
 };
 
