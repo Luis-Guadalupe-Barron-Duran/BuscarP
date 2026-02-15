@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buscar Productos</title>
+</head>
+<body>
+    <h1>Productos</h1>
+
+    <input type="text" id="input" placeholder="Escribe un producto...">
+    <button id="buscarbtn">Buscar</button>
+    <button id="clearbtn">Limpiar búsqueda</button>
+    <div id="status"></div>
+    <div id="encontrados"></div>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>DESCRIPCION</th>
+                <th>CATEGORIA</th>
+                <th>PRECIO</th>
+                <th>STOCK</th>
+            </tr>
+        </thead>
+        <tbody id="tablaproductos">
+            <tr><td colspan="5">Cargando...</td></tr>
+        </tbody>
+    </table>
+    <script src="main.js"></script>
+</body>
+</html>
